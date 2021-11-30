@@ -1,13 +1,8 @@
-import * as fs from 'fs';
+import { Solver } from "./solver"
 
-console.info("\n###### Challenge 2 #######")
-console.time("execution")
+const solution = (input:string) => { 
+    return input.split(",")
+} 
 
-const input = fs.readFileSync('input1.txt','utf8');
-const lines = input.split(',')
-
-const result = lines
-console.log("RESULT :", result)
-console.timeEnd("execution")
-console.log("##########################")  
+new Solver(solution,'input1.txt',2).print()
  

@@ -15,7 +15,7 @@
     "@types/node": "^16.11.10",
     "onchange": "^7.1.0"
   },
-  "type": "module",
+
   "dependencies": {
   }
 }
