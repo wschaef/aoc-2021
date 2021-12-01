@@ -1,8 +1,9 @@
 import { Solver } from "./solver"
 
 const solution = (input:string) => { 
-    return input.split(",")
+    const entries = input.split(",")
+    return entries
 } 
 
-new Solver(solution,'input1.txt',2).print()
+new Solver(solution,'input2.txt',2).print()
  
