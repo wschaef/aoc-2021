@@ -1,9 +1,8 @@
 import { Solver } from "./solver"
 
-const solution:any = (input:string) => { 
-    const entries = input.split(",")
+const solution: any = (input: string) => {
+    const entries = input.split("\n")
     return entries
-} 
+}
 
-new Solver(solution,'input1.txt',1).print()
- 
+new Solver(solution, 'input.txt', 1).print()
