@@ -1,9 +1,10 @@
 import * as _ from "lodash";
-import { values } from "lodash";
 import { Solver } from "./solver"
 
 const solution: any = (input: string) => {
     const entries = _.chain(input.split("\n").map(it => it.split('').map(it => parseInt(it))))
+
+    //oxygen generator rating
     let oRatings = entries
     let bitNumber = 0
     do {
@@ -11,6 +12,7 @@ const solution: any = (input: string) => {
     } while (oRatings.size().value() > 1);
     const oRating = oRatings.first().value()
 
+    //CO2 scrubber rating
     let cRatings = entries
     bitNumber = 0
     do {
