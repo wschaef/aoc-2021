@@ -1,5 +1,4 @@
 import * as _ from "lodash";
-import { replace } from "lodash";
 import { Solver } from "./solver"
 
 const solution: any = (input: string) => {
