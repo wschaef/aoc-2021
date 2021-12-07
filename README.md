@@ -44,3 +44,12 @@
 #### solution
 - Data structure matters! It is worth to spend few minutes more on having a good data structure.
 - Try to calculate the result by Math only was to complicated.
+
+## Day07
+
+#### technology
+- lodash used (sum,range)
+
+#### solution
+- the obvoius solution is good enough (35ms on a Mac M1)
+- possible optimisation to reduce the rage of potential points by using math
