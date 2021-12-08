@@ -45,7 +45,7 @@
 - Data structure matters! It is worth to spend few minutes more on having a good data structure.
 - Try to calculate the result by Math only was to complicated.
 
-## Day07
+### day 07
 
 #### technology
 - lodash used (sum,range)
@@ -53,3 +53,14 @@
 #### solution
 - the obvoius solution is good enough (35ms on a Mac M1)
 - possible optimisation to reduce the rage of potential points by using math
+
+### day 08
+
+#### technology
+- I got troubles with combination of Map, Tuple, Dictionary. Finaly having type validChannel was the key to get to readable code
+
+#### solution
+- was trying to solve part 1 without understanding that it was not required to translate, but just counting
+- part 2 started solving by some analytics and then iterations by removing single signals from segments
+- then got the idea using unique number of occurencies of b,e,f and then it was completly sovled without iterations
+- spent about 3h
