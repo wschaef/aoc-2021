@@ -64,3 +64,13 @@
 - part 2 started solving by some analytics and then iterations by removing single signals from segments
 - then got the idea using unique number of occurencies of b,e,f and then it was completly sovled without iterations
 - spent about 3h
+
+### day 09
+
+#### technology
+- lodash: used sum,uniq. Uniq worked as expected by comparing Objects by value
+- type system cost me a lot of time, because even if I check if a value is undefined the assignment is blocked do to type. Especially array.find() functions provides this kind of disadvantage
+
+#### solution
+- part 1 quick and durty
+- part 2 is optimzed for clear code, but there for sure further optimizations on execution runtime. I will not invest more time on it due to execution being < 40ms on Mac M1
