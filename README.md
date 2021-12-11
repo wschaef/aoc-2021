@@ -65,7 +65,7 @@
 - then got the idea using unique number of occurencies of b,e,f and then it was completly sovled without iterations
 - spent about 3h
 
-### day 10
+### day 9
 
 #### technology
 - lodash: used sum,uniq. Uniq worked as expected by comparing Objects by value
@@ -75,9 +75,22 @@
 - part 1 quick and durty
 - part 2 is optimzed for clear code, but there for sure further optimizations on execution runtime. I will not invest more time on it due to execution being < 40ms on Mac M1
 
-### day 11
+### day 10
 
 #### technology
 - sort() on number[] does not work!
 - Map is best for creating dictinaries, but I had to convice the compiler, that there is alwais a match. Hmm how to make it better without cast
 - array is also a stack (push,pop)
+
+### day 11
+
+#### technology
+- no lodash today required
+- had a look on some algorithm libraries in ts. Can be usefull, but bad documented. I doubt if using them cost me more time to understand how to use in comparison to time saved by using them.
+- 2D board with neighbours is a good pattern to be reused  
+- typing costs me to much time! e.g. array[x][y]
+- Today I used Windows machine with windows keyboard. Switching between Mac and Windows is still not painless. 
+
+#### solution
+- mostly reuse the same structure as day 11
+- second part was just a small modifcation of pfirst part.
