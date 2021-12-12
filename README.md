@@ -79,7 +79,7 @@
 
 #### technology
 - sort() on number[] does not work!
-- Map is best for creating dictinaries, but I had to convice the compiler, that there is alwais a match. Hmm how to make it better without cast
+- Map is best for creating dictinaries, but I had to convice the compiler, that there is alwais a match. Hmm how to make it better without cast?
 - array is also a stack (push,pop)
 
 ### day 11
@@ -94,3 +94,22 @@
 #### solution
 - mostly reuse the same structure as day 11
 - second part was just a small modifcation of pfirst part.
+
+## day12
+
+#### technology
+- lodash: uniq
+- Map for dictinary requires cast even if it is 100% not possible having undefined as type. 
+- I have spent 30 minutes on parsing data and put it to Vertexes -> again effort with dictionary syntax
+- lookup on Set was 20 times more performant than lookup on list (25sec -> 1.2sec)
+- ideas to improve: coloring braces plugin in vscode, quick log plugin in vscode, autoformat on save
+- typing is still far too slow
+- idea: first type the implementation of a function and then refactor it to be a separate function -> less work on typing the right signature
+
+#### solutions
+- create first vertexes then add neigbours is a good pattern. 
+- saving neigbours in the vertex makes the algorithm more local and simpler
+- the solution is basicaly a DFS (deep fist search) with custom visiting rules
+- would a graph lib providing the default DFS save time?
+- second part misuderstood twice -> lost 1,5 hours on working for solution for a wrong problem
+- overall effort 2,5 hours
