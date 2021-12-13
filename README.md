@@ -113,3 +113,18 @@
 - would a graph lib providing the default DFS save time?
 - second part misuderstood twice -> lost 1,5 hours on working for solution for a wrong problem
 - overall effort 2,5 hours
+
+### Day 13
+
+#### technology
+- lodash: clone, uniq
+- long split, map, .. lines are hard to debug
+- pattern idea: print a board (2d array) by passing a closure
+- pattern idea: transfer list of coordinates to 2d board
+- colored braces helped a bit
+- better log plugin used some times
+
+#### solutions
+- algorithm was easy to get, but debug and visualisation was an issue.
+- I've lost time on parsing too much
+- I did not implement an OCR on the output in second part ;-)
