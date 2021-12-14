@@ -123,6 +123,7 @@
 - pattern idea: transfer list of coordinates to 2d board
 - colored braces helped a bit
 - better log plugin used some times
+- MS AI plugin was not helpfull -> lets keep it for while
 
 #### solutions
 - algorithm was easy to get, but debug and visualisation was an issue.
