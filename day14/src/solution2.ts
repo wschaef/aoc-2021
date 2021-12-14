@@ -1,4 +1,3 @@
-import * as _ from "lodash";
 import { Solver } from "./solver"
 
 const solution: any = (input: string) => {
@@ -21,14 +20,11 @@ const solution: any = (input: string) => {
         pairs = applyRules(pairs, rules);
 
     }
+    const counts = Array.from(countElems(pairs, templateInput).values())
 
-    const counts = Array.of(...countElems(pairs).values())
-
-    console.log(counts)
     return Math.max(...counts) - Math.min(...counts)
-    // return counts
 }
-function countElems(pairs: Map<string, number>) {
+function countElems(pairs: Map<string, number>, initialTemplate: string) {
     const counts = new Map<string, number>();
 
     for (let [pair, count] of pairs) {
@@ -38,9 +34,13 @@ function countElems(pairs: Map<string, number>) {
         let countR = counts.get(r) || 0;
         counts.set(r, countR + count);
     }
-    //elements are counted twice except the corners
+    //elements were counted twice except the corners
+    const first = initialTemplate.substr(0, 1)
+    const last = initialTemplate.substr(-1)
+    counts.set(first, counts.get(first) as number + 1)
+    counts.set(last, counts.get(last) as number + 1)
     for (const [elem, count] of counts) {
-        counts.set(elem, Math.ceil(count / 2))
+        counts.set(elem, count / 2)
     }
     return counts;
 }
