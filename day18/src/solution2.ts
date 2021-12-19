@@ -1,4 +1,6 @@
 import { Solver } from "./solver"
+import * as fs from 'fs';
+import _ from "lodash";
 
 
 class Snail {
@@ -22,24 +24,42 @@ const solution: any = (input: string) => {
     const entries = input.split("\n")
     const lines = entries.map(it => JSON.parse(it)).map(line => new Snail(line))
     const snails = lines.map(l => parse(l))
-    let resultSnail = snails[0]
+    let startSnail = snails[0]
     // tryExplode(resultSnail)
-
-    for (let i = 1; i < snails.length; i++) {
-        const snail = snails[i]
-        resultSnail = add(resultSnail, snail)
-        console.log("after addition:\t", resultSnail.toString())
-        let continiue = false
-        do {
-            continiue = tryExplode(resultSnail)
-            console.log("after explode:\t", resultSnail.toString())
-            continiue = trySplit(resultSnail) || continiue
-            console.log("after split:\t", resultSnail.toString())
-        } while (continiue);
-        console.log(resultSnail.toString())
+    //testExplosion()
+    // test('input1.txt')
+    // test('input2.txt')
+    const magnitudes = new Array<number>()
+    for (let i = 0; i < snails.length; i++) {
+        for (let j = 0; j < snails.length; j++) {
+            if (i !== j) {
+                const a = _.cloneDeep(snails[i])
+                const b = _.cloneDeep(snails[j])
+                const resultSnail = solve([a, b], a)
+                magnitudes.push(magnitude(resultSnail))
+            }
+        }
     }
-    console.log(resultSnail.toString())
-    return magnitude(resultSnail)
+    // console.log(startSnail.toString())
+    return Math.max(...magnitudes)
+}
+
+function solve(snails: Snail[], start: Snail) {
+    for (let i = 1; i < snails.length; i++) {
+        const snail = snails[i];
+        start = add(start, snail);
+        // console.log("after addition:\t", start.toString());
+        let continiue = false;
+        do {
+            do {
+                continiue = tryExplode(start);
+                // console.log("after explode:\t", start.toString());
+            } while (continiue)
+            continiue = trySplit(start) || continiue;
+            // console.log("after split:\t", start.toString());
+        } while (continiue);
+    }
+    return start;
 }
 
 function parse(snail: Snail) {
@@ -148,4 +168,38 @@ function magnitude(snail: Snail): number {
     }
 }
 
-new Solver(solution, 'input4.txt', 2).print()
+function testExplosion() {
+    const input = fs.readFileSync('testExplode.txt', 'utf8')
+    const testInputs = input.split("\n")
+    const results = testInputs.map(t => t.split('----')[1])
+    const entries = testInputs.map(t => t.split('----')[0])
+    const lines = entries.map(it => JSON.parse(it)).map(line => new Snail(line))
+    const snails = lines.map(l => parse(l))
+    snails.forEach(snail => { tryExplode(snail) })
+    snails.forEach((snail, i) => assertEqual(snail.toString(), results[i]))
+}
+
+function test(fileName: string) {
+    console.log('#### start tests ####')
+    const inputStr = fs.readFileSync(fileName, 'utf8')
+    const inputs = inputStr.split('\n----\n')
+    const [input, result] = inputs
+    const lines = input.split("\n")
+    const entries = lines.map(it => JSON.parse(it)).map(entry => new Snail(entry))
+    const snails = entries.map(l => parse(l))
+    let startSnail = snails[0]
+    startSnail = solve(snails, startSnail)
+    assertEqual(startSnail.toString(), result)
+}
+
+function assertEqual(a: any, b: any) {
+    a = JSON.stringify(a);
+    b = JSON.stringify(b);
+    if (a !== b) {
+        console.table([a, b])
+    }
+    return a == b
+}
+
+
+new Solver(solution, 'input.txt', 2).print()
