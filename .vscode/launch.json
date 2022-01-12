@@ -9,7 +9,7 @@
             "name": "Run npm run:all",
             "request": "launch",
             "type": "node-terminal",
-            "cwd": "${workspaceFolder}/day24/dist"
+            "cwd": "${workspaceFolder}/day19/dist"
         }
     ]
 }
